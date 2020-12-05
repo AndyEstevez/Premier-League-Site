@@ -19,7 +19,7 @@ export default class HomePage extends Component {
         // 57
         $.ajax({
             headers: { 'X-Auth-Token': football_data_APIKEY },
-            url: 'http://api.football-data.org/v2/competitions/2021/matches',
+            url: matchesURL,
             dataType: 'json',
             type: 'GET',
             success: (res) => {
@@ -34,7 +34,7 @@ export default class HomePage extends Component {
 
           $.ajax({
             headers: { 'X-Auth-Token': football_data_APIKEY },
-            url: 'http://api.football-data.org/v2/competitions/2021/teams',
+            url: teamsURL,
             dataType: 'json',
             type: 'GET',
             success: (res) => {
