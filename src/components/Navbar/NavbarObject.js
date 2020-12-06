@@ -7,8 +7,8 @@ export default class NavbarObject extends Component {
     render() {
         return (
             <div>
-                <Navbar className="color-nav" variant="dark">
-                    <Nav className="mr-auto text-uppercase" style={{padding: "5px", fontSize: "24px", fontWeight: "300", color: "blue" }}>
+                <Navbar className="color-nav" variant="dark" expand="lg" style={{marginBottom: "50px"}}>
+                    <Nav className="mr-auto text-uppercase" style={{fontSize: "24px", fontWeight: "300"}}>
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/Fixtures">Fixtures</Nav.Link>
                         <Nav.Link href="/Results">Results</Nav.Link>

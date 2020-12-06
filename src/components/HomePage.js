@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery'; 
 import LiveGames from './LiveGames'
-import { football_data_APIKEY, matchesURL, teamsURL } from '../config';
+import { football_data_APIKEY, matchesURL } from '../config';
 
 export default class HomePage extends Component {
     constructor(props){
@@ -9,14 +9,11 @@ export default class HomePage extends Component {
         this.state = {
             footballMatches: [],
             liveMatches: [], 
-            footballTeams: []
-
         }
     }
 
     componentDidMount(){
         
-        // 57
         $.ajax({
             headers: { 'X-Auth-Token': football_data_APIKEY },
             url: matchesURL,
@@ -32,20 +29,7 @@ export default class HomePage extends Component {
            
           });
 
-          $.ajax({
-            headers: { 'X-Auth-Token': football_data_APIKEY },
-            url: teamsURL,
-            dataType: 'json',
-            type: 'GET',
-            success: (res) => {
-                this.setState({footballTeams: res.teams})
-            }
-          }).done(function(response){
-            // do something with the response, e.g. isolate the id of a linked resource   
-            //console.log(response);
-            //this.setState({footballData: response.matches})
-           
-          });
+         
         
     }
 
@@ -66,7 +50,7 @@ export default class HomePage extends Component {
         return (
             <div>
                 {findLiveGames.length > 0 ? 
-                <LiveGames liveGames={findLiveGames} matches={this.state.footballMatches} teams={this.state.footballTeams}/>
+                <LiveGames liveGames={findLiveGames} matches={this.state.footballMatches} />
                 : <div></div>
                 }
             </div>

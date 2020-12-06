@@ -14,8 +14,53 @@ code {
 }
 
 .color-nav{
-  background-color: #cc0066;
+  background-color: #8d0a4b;
   color: black;
 }
 
+.content-table {
+  border-collapse: collapse; 
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 50px;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.content-table thead tr {
+  background-color: #8512f0;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+}
+.content-table th, .content-table td {
+  padding: 12px 25px;
+  font-family: 'Merriweather';
+  text-align: center;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+  height: 75px;
+}
+
+.content-table tbody tr {
+  background-color: #f3f3f3;
+}
+.content-table tbody tr:hover{
+  background-color: #d90ae0;
+  font-size: "24px";
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #8512f0;
+}
+
+.content-table tbody tr {
+  font-weight: bold;
+  color: black;
+}
 
