@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { football_data_APIKEY, imageURL } from '../config';
+import { football_data_APIKEY } from '../config';
 import $ from 'jquery';
 
 export default class StandingsPage extends Component {
@@ -21,11 +21,7 @@ export default class StandingsPage extends Component {
                 this.setState({standings: res.standings[0].table})
             }
           })
-            
-         
     }
-
-
 
     render() {
         console.log(this.state.standings)
@@ -35,8 +31,8 @@ export default class StandingsPage extends Component {
                     <tr>
                         <th>Position</th>   <th>Club</th>   <th>Played</th>
                         <th>Won</th>        <th>Draw</th>   <th>Lost</th>
-                        <th>GF</th>         <th>GA</th>     <th>GD</th>
-                        <th>Points</th>     <th>Form</th>
+                        <th className="th-col-7">GF</th>         <th className="th-col-8">GA</th>     <th>GD</th>
+                        <th>Points</th>     <th className="th-col-11">Form</th>
                     </tr>
                 </thead>
 
@@ -44,13 +40,17 @@ export default class StandingsPage extends Component {
                     {this.state.standings.map(function(index){
                         return(
                             <tr>
-                                <td>{index.position}</td>   <td><img style={{height: "25px", margin: "auto", paddingRight: "10px", paddingBottom: "2px"}}src={index.team.crestUrl}/>{index.team.name}</td>      <td>{index.playedGames}</td>
+                                <td>{index.position}</td>   
+                                <td>
+                                    <img style={{maxHeight: "35px", margin: "auto", paddingBottom: "2px", display:"flex"}}src={index.team.crestUrl}/>
+                                    {index.team.name}
+                                </td>      
+                                <td>{index.playedGames}</td>
                                 <td>{index.won}</td>        <td>{index.draw}</td>           <td>{index.lost}</td>
-                                <td>{index.goalsFor}</td>   <td>{index.goalsAgainst}</td>   <td>+{index.goalDifference}</td>
-                                <td>{index.points}</td>     <td>{index.form}</td>
+                                <td className="col-7" style={{width: "5%"}}>{index.goalsFor}</td>   <td className="col-8" style={{width: "5%"}}>{index.goalsAgainst}</td>   <td>+{index.goalDifference}</td>
+                                <td>{index.points}</td>     <td className="col-11" style={{width: "5%"}}>{index.form}</td>
                             </tr>
-                        )
-                    })}
+                        )})}
                 </tbody>
             </table>
         )

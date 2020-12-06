@@ -18,11 +18,25 @@ code {
   color: black;
 }
 
+.header-live{
+  padding-Left: 15px;
+  animation: blinker 1.33s ease-in-out infinite;
+  color: rgb(255, 230, 9);
+
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Standings Page CSS */
 .content-table {
   border-collapse: collapse; 
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 50px;
+  width: 50%;
   font-size: 0.9em;
   min-width: 400px;
   border-radius: 5px 5px 0 0;
@@ -44,23 +58,105 @@ code {
 
 .content-table tbody tr {
   border-bottom: 1px solid #dddddd;
-  height: 75px;
-}
-
-.content-table tbody tr {
+  height: 25%;
+  max-height: 75px;
+  font-weight: bold;
+  color: black;
   background-color: #f3f3f3;
 }
+
 .content-table tbody tr:hover{
   background-color: #d90ae0;
   font-size: "24px";
 }
 
 .content-table tbody tr:last-of-type {
-  border-bottom: 2px solid #8512f0;
+  border-bottom: 3px solid #8512f0;
 }
 
-.content-table tbody tr {
-  font-weight: bold;
-  color: black;
+@media screen and (max-width: 1225px) and (min-width: 1045px) {
+  .th-col-7{
+    display:none;
+  }
+  .th-col-8{
+    display:none;
+  }
+  .th-col-11{
+    display:none;
+  }
+  .col-7{
+    display:none;
+  }
+  .col-8{
+    display:none;
+  }
+  .col-11{
+    display:none;
+  }
 }
+
+@media screen and (max-width: 1045px) and (min-width: 835px) {
+  .th-col-7{
+    display:none;
+  }
+  .th-col-8{
+    display:none;
+  }
+  .th-col-11{
+    display:none;
+  }
+  .col-7{
+    display:none;
+  }
+  .col-8{
+    display:none;
+  }
+  .col-11{
+    display:none;
+  }
+}
+
+@media screen and (max-width: 565px) and (min-width: 300px) {
+  .th-col-7{
+    display:none;
+  }
+  .th-col-8{
+    display:none;
+  }
+  .th-col-11{
+    display:none;
+  }
+  .col-7{
+    display:none;
+  }
+  .col-8{
+    display:none;
+  }
+  .col-11{
+    display:none;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .th-col-7{
+    display:none;
+  }
+  .th-col-8{
+    display:none;
+  }
+  .th-col-11{
+    display:none;
+  }
+  .col-7{
+    display:none;
+  }
+  .col-8{
+    display:none;
+  }
+  .col-11{
+    display:none;
+  }
+
+}
+
 

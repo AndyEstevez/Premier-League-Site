@@ -35,7 +35,6 @@ export default class HomePage extends Component {
 
     render() {
         var findLiveGames = [];
-        console.log(this.state.footballMatches[103])
         for(var i = 0; i < this.state.footballMatches.length; i++){
             if( this.state.footballMatches[i].status === 'PAUSED' || this.state.footballMatches[i].status === 'IN_PLAY'){
                 findLiveGames.push(i);
