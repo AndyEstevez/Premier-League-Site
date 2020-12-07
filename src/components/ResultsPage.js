@@ -65,9 +65,7 @@ export default class ResultsPage extends Component {
         let dates = this.getDates(matches);
         let count = -1;
         let isA = true;
-        //console.log(dates)
         console.log(dates[count])
-        //console.log(dates)
         
         return (
             <div>
@@ -77,14 +75,34 @@ export default class ResultsPage extends Component {
                     if(matches[index].utcDate.substring(0, 10) == dates[count+1]){
                         isA = true;
                         count++;
-                        
-
                     }
 
                     return(
-                        <div>
+                        <div  style={{paddingBottom:"15px"}}>
                             {isA ? <h1 style={{margin:"auto", padding:"0px 0px", width:"35%", textAlign:"center"}}>{dates[count]}</h1> : <h1></h1>}
-                        <div className="result-container" style={{marginBottom: "20px", width:"100%", maxHeight: "250px"}}>    
+                            
+                            <div className="result-container" style={{backgroundColor:"white", width:"100%", maxWidth: "1000px", margin:"auto", display:"flex"}}>
+                                <div style={{display: "flex", border: "3px solid black", width:"50%"}}>
+                                    <div className="awayTeam-name" style={{margin:"auto", width:"50%", fontSize:"1.5em"}}>{matches[index].awayTeam.name.split("FC")}</div>
+                                    <img style={{maxHeight:"100px"}} src={imageURL + matches[index].awayTeam.id + ".svg"}/>
+                                    <div style={{margin:"auto", fontSize: "2em"}}>{matches[index].score.fullTime.awayTeam}</div>
+                                </div>
+
+                                <div style={{display: "flex", border: "3px solid black", width:"50%"}}>
+                                    <div style={{margin:"auto", fontSize: "2em"}} >{matches[index].score.fullTime.homeTeam}</div>
+                                    <img style={{maxHeight:"100px"}} src={imageURL + matches[index].homeTeam.id + ".svg"}/>
+                                    <div className="homeTeam-name" style={{margin:"auto", width:"50%", fontSize:"1.5em"}}>{matches[index].homeTeam.name.split("FC")}</div>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                })}
+                </div>
+            </div>
+        )
+    }
+}
+                        {/* <div className="result-container" style={{marginBottom: "20px", width:"100%", maxHeight: "250px"}}>    
                                 <div className="awayTeam-name" style={{ padding:"65px 20px", fontWeight:"bold", width:'30%', maxWidth:"150px", textAlign: "left", border: "3px solid black"}}>{matches[index].awayTeam.name.split("FC")}</div>
 
                                 <div style={{display: "inline-block",  padding:"0px 55px"}}>
@@ -101,12 +119,4 @@ export default class ResultsPage extends Component {
                                 </div>
                                 
                                 <span className="homeTeam-name" style={{margin: "auto", padding:"65px 10px", fontWeight:"bold", width:'25%', maxWidth:"150px", minWidth:"10px", textAlign: "right", border: "3px solid black"}}>{matches[index].homeTeam.name.split("FC")}</span>
-                        </div>
-                        </div>
-                    )
-                })}
-                </div>
-            </div>
-        )
-    }
-}
+                        </div> */}
