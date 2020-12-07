@@ -3,6 +3,14 @@ import $ from 'jquery';
 import LiveGames from './LiveGames'
 import { football_data_APIKEY, matchesURL } from '../config';
 
+// edge cases for embedding highlights:
+// All other teams = remove FC from Club name
+// Leeds United FC = Leeds
+// Brighton & Hove Albion FC = Brighton
+// Wolverhampton Wanderers FC = Wolves
+
+
+
 export default class HomePage extends Component {
     constructor(props){
         super(props);
@@ -28,9 +36,6 @@ export default class HomePage extends Component {
             //this.setState({footballData: response.matches})
            
           });
-
-         
-        
     }
 
     render() {
