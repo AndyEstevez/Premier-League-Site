@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
 }
 
 code {
@@ -17,6 +16,10 @@ code {
   background-color: #8d0a4b;
   color: black;
 }
+
+
+
+
 
 /* Live Game CSS */
 .header-live{
@@ -55,41 +58,60 @@ code {
   font-size: 32px;
 }
 
+
+/* Fixtures Page CSS */
+.game-time{
+  border: 1px solid black;
+  font-size: 2em;
+  margin: auto;
+}
+.fixtures-container{
+  display: flex;
+  width: 50%;
+}
+.fixtures-name{
+  margin: auto;
+  width: 50%;
+  font-size: 1.5em;
+}
+
 /* Results Page CSS */
+.result-header{
+  margin: auto; 
+  padding: 0px 0px; 
+  width: 35%; 
+  text-align: center;
+}
+.result-container{
+  background-color:white;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto; 
+  display: flex;
+}
 .result-container:hover{
   background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+  linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+  linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
 }
-
-.center-items{
-  /* justify-content: center;
-  align-items: center;
-  height: 100px;
-  background-color: white;
-  margin: auto;
+.team-container{
   display: flex;
-  min-width: 500px;
-  max-width: 1000px;
-   */
+  border: 3px solid black;
+  width: 50%;
 }
-.results-img{
-  /* display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  height: 80px;
-  width: 80px;
-  min-height: 25px;
-  max-height: 80px;
-  margin: 10px;
-  padding: 10px;
-  border: 3px solid black; */
+.team-name{
+  margin: auto;
+  width: 50%;
+  font-size: 1.5em;
+}
+.result-score{
+  margin: auto;
+  font-size: 2em;
+  background-color: purple;
+  padding: 10px 10px;
+  color: white;
+}
 
-  /* justify-content: center;
-  align-items: center;
-  height:100px; */
-  
-}
 
 
 
@@ -159,13 +181,7 @@ code {
   .match-date{
     display: none;
   }
-  
-  .homeTeam-name{
-    display: none;
-  }
-  .awayTeam-name{
-    display: none;
-  }
+ 
   
 }
 
@@ -191,7 +207,9 @@ code {
   .match-date{
     display: none;
   }
-  
+  .team-name{
+    display: none;
+  }
   
 }
 
@@ -217,13 +235,18 @@ code {
   .match-date{
     display: none;
   }
-  .homeTeam-name{
+  .team-name{
     display: none;
   }
-  .awayTeam-name{
+  .fixtures-name{
     display: none;
   }
-  
+  .fixtures-container{
+    padding: 10px 50px;
+  }
+  .game-time{
+    padding: 0px 0px;
+  }
 }
 
 @media screen and (max-width: 300px) {
@@ -248,14 +271,10 @@ code {
   .match-date{
     display: none;
   }
-  .homeTeam-name{
-    display: none;
-  }
-  .awayTeam-name{
+  .team-name{
     display: none;
   }
   
-
 }
 
 

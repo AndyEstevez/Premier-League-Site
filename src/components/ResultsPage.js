@@ -3,9 +3,6 @@ import { football_data_APIKEY, matchesURL, imageURL } from '../config';
 import $ from 'jquery';
 import moment from 'moment';
 
-
-
-
 export default class ResultsPage extends Component {
     constructor(props){
         super(props);
@@ -30,7 +27,6 @@ export default class ResultsPage extends Component {
 
     reverseGames(matches){
         var finishedGames = [];
-        var dates = [];
             for(let i = 0; i < matches.length; i++){
             if(matches[i].status === 'FINISHED'){
                 finishedGames.push(i);
@@ -72,26 +68,26 @@ export default class ResultsPage extends Component {
                 <div>
                 {this.state.results.map(function(index){
                     isA = false;
-                    if(matches[index].utcDate.substring(0, 10) == dates[count+1]){
+                    if(matches[index].utcDate.substring(0, 10) === dates[count+1]){
                         isA = true;
                         count++;
                     }
 
                     return(
-                        <div  style={{paddingBottom:"15px"}}>
-                            {isA ? <h1 style={{margin:"auto", padding:"0px 0px", width:"35%", textAlign:"center"}}>{dates[count]}</h1> : <h1></h1>}
+                        <div style={{paddingBottom:"15px"}}>
+                            {isA ? <h1 className="result-header">{moment(dates[count]).format('MMMM Do, YYYY')}</h1> : <h1>{}</h1>}
                             
-                            <div className="result-container" style={{backgroundColor:"white", width:"100%", maxWidth: "1000px", margin:"auto", display:"flex"}}>
-                                <div style={{display: "flex", border: "3px solid black", width:"50%"}}>
-                                    <div className="awayTeam-name" style={{margin:"auto", width:"50%", fontSize:"1.5em"}}>{matches[index].awayTeam.name.split("FC")}</div>
-                                    <img style={{maxHeight:"100px"}} src={imageURL + matches[index].awayTeam.id + ".svg"}/>
-                                    <div style={{margin:"auto", fontSize: "2em"}}>{matches[index].score.fullTime.awayTeam}</div>
+                            <div className="result-container">
+                                <div className="team-container">
+                                    <div className="team-name">{matches[index].awayTeam.name.split("FC")}</div>
+                                    <img style={{maxHeight:"100px"}} src={imageURL + matches[index].awayTeam.id + ".svg"} alt={matches[index].awayTeam.id}/>
+                                    <div className="result-score">{matches[index].score.fullTime.awayTeam}</div>
                                 </div>
 
-                                <div style={{display: "flex", border: "3px solid black", width:"50%"}}>
-                                    <div style={{margin:"auto", fontSize: "2em"}} >{matches[index].score.fullTime.homeTeam}</div>
-                                    <img style={{maxHeight:"100px"}} src={imageURL + matches[index].homeTeam.id + ".svg"}/>
-                                    <div className="homeTeam-name" style={{margin:"auto", width:"50%", fontSize:"1.5em"}}>{matches[index].homeTeam.name.split("FC")}</div>
+                                <div className="team-container">
+                                    <div className="result-score" >{matches[index].score.fullTime.homeTeam}</div>
+                                    <img style={{maxHeight:"100px"}} src={imageURL + matches[index].homeTeam.id + ".svg"} alt={matches[index].homeTeam.id}/>
+                                    <div className="team-name">{matches[index].homeTeam.name.split("FC")}</div>
                                 </div>
                             </div>
                         </div>
@@ -102,21 +98,3 @@ export default class ResultsPage extends Component {
         )
     }
 }
-                        {/* <div className="result-container" style={{marginBottom: "20px", width:"100%", maxHeight: "250px"}}>    
-                                <div className="awayTeam-name" style={{ padding:"65px 20px", fontWeight:"bold", width:'30%', maxWidth:"150px", textAlign: "left", border: "3px solid black"}}>{matches[index].awayTeam.name.split("FC")}</div>
-
-                                <div style={{display: "inline-block",  padding:"0px 55px"}}>
-                                    <img style={{border: "3px solid black", margin:"40px", maxHeight:"100px", paddingBottom: "15px"}} src={imageURL + matches[index].awayTeam.id + ".svg"} />
-                                </div>
-
-                                <div style={{display: "flex", width:"20%", paddingTop:"70px", fontSize:"24px"}}>
-                                    <div style={{display: "flex", marginRight:"35px"}}>{matches[index].score.fullTime.awayTeam}</div>
-                                    <div style={{display: "flex", marginLeft:"100px"}}>{matches[index].score.fullTime.homeTeam}</div>
-                                </div>
-
-                                <div style={{display: "inline-block", width:"10%"}}>
-                                    <img style={{margin:"40px", maxHeight:"100px", paddingBottom: "15px",   border: "3px solid black"}} src={imageURL + matches[index].homeTeam.id + ".svg"} />
-                                </div>
-                                
-                                <span className="homeTeam-name" style={{margin: "auto", padding:"65px 10px", fontWeight:"bold", width:'25%', maxWidth:"150px", minWidth:"10px", textAlign: "right", border: "3px solid black"}}>{matches[index].homeTeam.name.split("FC")}</span>
-                        </div> */}
