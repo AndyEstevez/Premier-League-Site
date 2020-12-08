@@ -10,7 +10,6 @@ export default class FixturesPage extends Component {
         this.state = {
             footballMatches: [],
             fixtures: [],
-
         }
     }
 
@@ -27,6 +26,7 @@ export default class FixturesPage extends Component {
         }
             return scheduledGames;
     }
+
     getDates(matches){
         var dates = [];
         var countTo50Games = 0;
@@ -51,9 +51,7 @@ export default class FixturesPage extends Component {
             success: (res) => {
                 this.setState({footballMatches: res.matches, fixtures: this.get50Games(res.matches)})
             }
-          }).done(function(response){
-            // do something with the response, e.g. isolate the id of a linked resource   
-          });
+          })
     }
 
 
@@ -78,14 +76,14 @@ export default class FixturesPage extends Component {
                         <div style={{paddingBottom:"15px"}}>
                             {isA ? <h1 className="result-header">{moment(dates[count]).format('MMMM Do, YYYY')}</h1> : <h1>{}</h1>}
                             
-                            <div className="result-container">
+                            <div className="result-container" style={{border: "3px solid black"}}>
                                 <div className="fixtures-container">
                                     <div className="fixtures-name">{matches[index].awayTeam.name.split("FC")}</div>
-                                    <img style={{maxHeight:"100px"}} src={imageURL + matches[index].awayTeam.id + ".svg"} alt={matches[index].awayTeam.id}/>
+                                    <img style={{maxHeight:"100px", margin:"auto"}} src={imageURL + matches[index].awayTeam.id + ".svg"} alt={matches[index].awayTeam.id}/>
                                 </div>
                                 <div className="game-time">{matches[index].utcDate.substring(11, 16)}</div>
                                 <div className="fixtures-container">
-                                    <img style={{maxHeight:"100px"}} src={imageURL + matches[index].homeTeam.id + ".svg"} alt={matches[index].homeTeam.id}/>
+                                    <img style={{maxHeight:"100px", margin:"auto"}} src={imageURL + matches[index].homeTeam.id + ".svg"} alt={matches[index].homeTeam.id}/>
                                     <div className="fixtures-name">{matches[index].homeTeam.name.split("FC")}</div>
                                 </div>
                             </div>

@@ -30,12 +30,7 @@ export default class HomePage extends Component {
             success: (res) => {
                 this.setState({footballMatches: res.matches})
             }
-          }).done(function(response){
-            // do something with the response, e.g. isolate the id of a linked resource   
-            console.log(response);
-            //this.setState({footballData: response.matches})
-           
-          });
+          })
     }
 
     render() {

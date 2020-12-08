@@ -38,33 +38,40 @@ export default class ResultsPage extends Component {
             return finishedGames.reverse(); 
     }
 
-    componentDidMount(){
-        
+    async componentDidMount(){
+        // const response = await fetch(`https://www.scorebat.com/video-api/v1/`);
+        // const json = await response.json();
+        // this.setState({ footballVids: json })
+        // console.log(this.state.footballVids)
         $.ajax({
             headers: { 'X-Auth-Token': football_data_APIKEY },
             url: matchesURL,
             dataType: 'json',
             type: 'GET',
             success: (res) => {
-                this.setState({footballMatches: res.matches, results: this.reverseGames(res.matches)})
+                this.setState({footballMatches: res.matches, results: this.reverseGames(res.matches),})
             }
-          }).done(function(response){
-            // do something with the response, e.g. isolate the id of a linked resource   
-          });
+          })
     }
-        
-
+    
     render() {
-        // console.log(this.state.results)
-        console.log(this.state.footballMatches)
+        // console.log(this.state.matchNames)
+        // console.log(this.state.footballMatches)
+        // let len = this.state.matchNames.length
+        // let getHighlights = this.state.matchNames.slice(len-20, len).reverse();
+        // let countHighlights = 0;
+        // let videos = this.state.footballVids
+        // console.log(getHighlights)
+        // let indexOfVideo;
+
         let matches = this.state.footballMatches;
         let dates = this.getDates(matches);
         let count = -1;
         let isA = true;
-        console.log(dates[count])
-        
+
         return (
             <div>
+                
                 <div>
                 {this.state.results.map(function(index){
                     isA = false;
@@ -72,21 +79,28 @@ export default class ResultsPage extends Component {
                         isA = true;
                         count++;
                     }
+                    // if(countHighlights < 20)
+                    // for(let i = 0; i < videos.length; i++){
+                    //     if(getHighlights.includes(videos[i].title)){
+                    //         countHighlights++;
+                    //         indexOfVideo = i;
+                    //         break;
+                    //     }
+                    // }
 
                     return(
                         <div style={{paddingBottom:"15px"}}>
                             {isA ? <h1 className="result-header">{moment(dates[count]).format('MMMM Do, YYYY')}</h1> : <h1>{}</h1>}
-                            
                             <div className="result-container">
                                 <div className="team-container">
                                     <div className="team-name">{matches[index].awayTeam.name.split("FC")}</div>
-                                    <img style={{maxHeight:"100px"}} src={imageURL + matches[index].awayTeam.id + ".svg"} alt={matches[index].awayTeam.id}/>
+                                    <img style={{maxHeight:"100px", margin:"auto"}} src={imageURL + matches[index].awayTeam.id + ".svg"} alt={matches[index].awayTeam.id}/>
                                     <div className="result-score">{matches[index].score.fullTime.awayTeam}</div>
                                 </div>
 
                                 <div className="team-container">
                                     <div className="result-score" >{matches[index].score.fullTime.homeTeam}</div>
-                                    <img style={{maxHeight:"100px"}} src={imageURL + matches[index].homeTeam.id + ".svg"} alt={matches[index].homeTeam.id}/>
+                                    <img style={{maxHeight:"100px", margin:"auto"}} src={imageURL + matches[index].homeTeam.id + ".svg"} alt={matches[index].homeTeam.id}/>
                                     <div className="team-name">{matches[index].homeTeam.name.split("FC")}</div>
                                 </div>
                             </div>
@@ -98,3 +112,51 @@ export default class ResultsPage extends Component {
         )
     }
 }
+
+
+    // checkTeamName(matches){
+    //     let edgecaseTeams = ['Leeds United FC', 'Brighton & Hove Albion FC', 'Wolverhampton Wanderers FC']
+    //     let fullMatchNames = [];
+    //     var matchName = "";
+    //     var hometeamIndex;
+    //     var awayteamIndex;
+    //     for(let i = 0; i < matches.length; i++){
+    //         if(matches[i].status === 'SCHEDULED'){
+    //             return fullMatchNames;
+    //         }
+    //         if(edgecaseTeams.includes(matches[i].homeTeam.name)){
+    //             hometeamIndex = edgecaseTeams.indexOf(matches[i].homeTeam.name)
+    //             if(hometeamIndex === 0){
+    //                 matchName = "Leeds - "
+    //             }
+    //             else if(hometeamIndex === 1){    
+    //                 matchName = "Brighton - "
+    //             }
+    //             else{
+    //                 matchName = "Wolves - "
+    //             }
+    //         }
+    //         else{
+    //             matchName = "" + matches[i].homeTeam.name.split("FC")[0] + "- ";
+    //         }
+        
+    //         if(edgecaseTeams.includes(matches[i].awayTeam.name)){
+    //             awayteamIndex = edgecaseTeams.indexOf(matches[i].awayTeam.name)
+        
+    //             if(awayteamIndex === 0){
+    //                 matchName += ("Leeds")
+    //             }
+    //             else if(awayteamIndex === 1){    
+    //                 matchName += ("Brighton")
+    //             }
+    //             else{
+    //                 matchName += ("Wolves")
+    //             }
+    //         }
+    //         else{
+    //             matchName += (matches[i].awayTeam.name.split("FC")[0])
+    //         }
+    //         fullMatchNames.push(matchName);
+    //     }
+    //     return fullMatchNames;
+    // }

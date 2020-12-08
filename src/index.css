@@ -159,6 +159,10 @@ code {
   border-bottom: 3px solid #8512f0;
 }
 
+
+
+
+
 @media screen and (max-width: 1225px) and (min-width: 1045px) {
   .th-col-7{
     display:none;
