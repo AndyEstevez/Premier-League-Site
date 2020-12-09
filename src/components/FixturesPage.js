@@ -44,8 +44,8 @@ export default class FixturesPage extends Component {
     componentDidMount(){
         
         $.ajax({
-            headers: { 'X-Auth-Token': football_data_APIKEY },
-            url: matchesURL,
+            headers: { 'X-Auth-Token': process.env.REACT_APP_FOOTBALL_DATA_APIKEY },
+            url: process.env.REACT_APP_MATCHES_URL,
             dataType: 'json',
             type: 'GET',
             success: (res) => {
@@ -79,11 +79,11 @@ export default class FixturesPage extends Component {
                             <div className="result-container" style={{border: "3px solid black"}}>
                                 <div className="fixtures-container">
                                     <div className="fixtures-name">{matches[index].awayTeam.name.split("FC")}</div>
-                                    <img style={{maxHeight:"100px", margin:"auto"}} src={imageURL + matches[index].awayTeam.id + ".svg"} alt={matches[index].awayTeam.id}/>
+                                    <img style={{maxHeight:"100px", margin:"auto"}} src={process.env.REACT_APP_IMAGE_URL + matches[index].awayTeam.id + ".svg"} alt={matches[index].awayTeam.id}/>
                                 </div>
                                 <div className="game-time">{matches[index].utcDate.substring(11, 16)}</div>
                                 <div className="fixtures-container">
-                                    <img style={{maxHeight:"100px", margin:"auto"}} src={imageURL + matches[index].homeTeam.id + ".svg"} alt={matches[index].homeTeam.id}/>
+                                    <img style={{maxHeight:"100px", margin:"auto"}} src={process.env.REACT_APP_IMAGE_URL + matches[index].homeTeam.id + ".svg"} alt={matches[index].homeTeam.id}/>
                                     <div className="fixtures-name">{matches[index].homeTeam.name.split("FC")}</div>
                                 </div>
                             </div>

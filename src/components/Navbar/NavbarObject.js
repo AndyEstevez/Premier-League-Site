@@ -17,8 +17,8 @@ export default class NavbarObject extends Component {
     async componentDidMount(){
         
         $.ajax({
-            headers: { 'X-Auth-Token': football_data_APIKEY },
-            url: teamsURL,
+            headers: { 'X-Auth-Token': process.env.REACT_APP_FOOTBALL_DATA_APIKEY },
+            url: process.env.REACT_APP_TEAMS_URL,
             dataType: 'json',
             type: 'GET',
             success: (res) => {
@@ -87,10 +87,9 @@ export default class NavbarObject extends Component {
     }
 
     render() {
-         console.log(this.state.teams)
+        console.log(this.state.teams)
         const { text } = this.state;
-        let  teams  = this.state.teams
-        // console.log(teams)
+       
         return (
             <div>
                 <Navbar className="color-nav" variant="dark" expand="lg" style={{marginBottom: "50px"}}>

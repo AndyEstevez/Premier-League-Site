@@ -39,7 +39,7 @@ const matches = (props) => {
 
                         <div style={{display: "inline-block", fontSize: "20px", margin:"20px"}}>
                         <img style={{margin:"25px", maxHeight:"80px", paddingBottom: "15px"}} 
-                            src={imageURL + props.matches[index].awayTeam.id + ".svg"} 
+                            src={process.env.REACT_APP_IMAGE_URL + props.matches[index].awayTeam.id + ".svg"} 
                             alt={props.matches[index].awayTeam.name}/>
                         <div className="team-score">{props.matches[index].score.fullTime.awayTeam}</div>
                         </div>
@@ -48,7 +48,7 @@ const matches = (props) => {
                         <div className="team-score">{props.matches[index].score.fullTime.homeTeam}</div>
 
                         <img style={{ margin:"25px", maxHeight:"80px", paddingBottom: "15px"}} 
-                            src={imageURL + props.matches[index].homeTeam.id + ".svg"} 
+                            src={process.env.REACT_APP_IMAGE_URL + props.matches[index].homeTeam.id + ".svg"} 
                             alt={props.matches[index].homeTeam.name}/>
 
                         </div>

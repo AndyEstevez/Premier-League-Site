@@ -26,8 +26,8 @@ export default class StandingsPage extends Component {
     componentDidMount(){
         
         $.ajax({
-            headers: { 'X-Auth-Token': football_data_APIKEY },
-            url: 'http://api.football-data.org/v2/competitions/2021/standings',
+            headers: { 'X-Auth-Token': process.env.REACT_APP_FOOTBALL_DATA_APIKEY },
+            url: "https://api.football-data.org/v2/competitions/PL/standings",
             dataType: 'json',
             type: 'GET',
             success: (res) => {

@@ -24,8 +24,8 @@ export default class HomePage extends Component {
     componentDidMount(){
         
         $.ajax({
-            headers: { 'X-Auth-Token': football_data_APIKEY },
-            url: matchesURL,
+            headers: { 'X-Auth-Token': process.env.REACT_APP_FOOTBALL_DATA_APIKEY },
+            url: process.env.REACT_APP_MATCHES_URL,
             dataType: 'json',
             type: 'GET',
             success: (res) => {

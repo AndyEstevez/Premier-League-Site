@@ -44,8 +44,8 @@ export default class ResultsPage extends Component {
         // this.setState({ footballVids: json })
         // console.log(this.state.footballVids)
         $.ajax({
-            headers: { 'X-Auth-Token': football_data_APIKEY },
-            url: matchesURL,
+            headers: { 'X-Auth-Token': process.env.REACT_APP_FOOTBALL_DATA_APIKEY },
+            url: process.env.REACT_APP_MATCHES_URL,
             dataType: 'json',
             type: 'GET',
             success: (res) => {
@@ -94,13 +94,13 @@ export default class ResultsPage extends Component {
                             <div className="result-container">
                                 <div className="team-container">
                                     <div className="team-name">{matches[index].awayTeam.name.split("FC")}</div>
-                                    <img style={{maxHeight:"100px", margin:"auto"}} src={imageURL + matches[index].awayTeam.id + ".svg"} alt={matches[index].awayTeam.id}/>
+                                    <img style={{maxHeight:"100px", margin:"auto"}} src={process.env.REACT_APP_IMAGE_URL + matches[index].awayTeam.id + ".svg"} alt={matches[index].awayTeam.id}/>
                                     <div className="result-score">{matches[index].score.fullTime.awayTeam}</div>
                                 </div>
 
                                 <div className="team-container">
                                     <div className="result-score" >{matches[index].score.fullTime.homeTeam}</div>
-                                    <img style={{maxHeight:"100px", margin:"auto"}} src={imageURL + matches[index].homeTeam.id + ".svg"} alt={matches[index].homeTeam.id}/>
+                                    <img style={{maxHeight:"100px", margin:"auto"}} src={process.env.REACT_APP_IMAGE_URL + matches[index].homeTeam.id + ".svg"} alt={matches[index].homeTeam.id}/>
                                     <div className="team-name">{matches[index].homeTeam.name.split("FC")}</div>
                                 </div>
                             </div>

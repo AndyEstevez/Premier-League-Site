@@ -25,8 +25,8 @@ export default class ClubsPage extends Component {
     componentDidMount(){
         
         $.ajax({
-            headers: { 'X-Auth-Token': football_data_APIKEY },
-            url: teamsURL,
+            headers: { 'X-Auth-Token': process.env.REACT_APP_FOOTBALL_DATA_APIKEY },
+            url: process.env.REACT_APP_TEAMS_URL,
             dataType: 'json',
             type: 'GET',
             success: (res) => {
@@ -60,7 +60,7 @@ export default class ClubsPage extends Component {
                             </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button style={{margin:"auto", fontSize:"1.5em"}} size="small" color="primary" onClick={event => window.location.href=`/Clubs/${index.id}`}>
+                                <Button style={{margin:"auto", fontSize:"1.5em", color:"black"}} size="small" color="primary" onClick={event => window.location.href=`/Clubs/${index.id}`}>
                                 Club Page
                                 </Button>
                             </CardActions>

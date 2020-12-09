@@ -29,12 +29,12 @@ const Matchweek = (props) => {
                     <div style={{display: "flex", border: "2px solid black", width:"100%",  margin: "auto"}}>
 
                     <img style={{display: "flex", maxHeight:"50px", margin: "auto"}} 
-                        src={imageURL + props.matches[index].awayTeam.id + ".svg"} 
+                        src={process.env.REACT_APP_IMAGE_URL + props.matches[index].awayTeam.id + ".svg"} 
                         alt={props.matches[index].awayTeam.name}/>
                    
                     <div style={{display: "flex", fontSize:"1.25em", margin: "auto", padding:"0px 10px"}}>{props.matches[index].utcDate.substring(11, 16)}</div>
                     <img style={{display: "flex", maxHeight:"50px", margin: "auto"}} 
-                        src={imageURL + props.matches[index].homeTeam.id + ".svg"} 
+                        src={process.env.REACT_APP_IMAGE_URL + props.matches[index].homeTeam.id + ".svg"} 
                         alt={props.matches[index].homeTeam.name}/>
                     </div>
                     </div>
