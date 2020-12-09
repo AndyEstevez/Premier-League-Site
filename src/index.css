@@ -17,6 +17,42 @@ code {
   color: black;
 }
 
+/* Navbar CSS */ 
+.search{
+  width: 15%;
+  min-width: 170px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 2px 4px 1px rgba(0, 0, 0, .18);
+  text-align: left;
+  z-index: 8000;
+  background-color: white;
+}
+.search-ul{
+  list-style-type: none;
+  text-align: left;
+  z-index: 8000; 
+  padding: 10px 10px;
+  margin: auto;
+}
+.search-input{
+  border: 3px solid black;
+  width: 100%;
+  max-width: 400px;  
+  position: relative;
+  padding: 10px 10px;
+  z-index: 8000;
+
+}
+
+.li-selections{
+  text-align: center;
+  z-index: 8000; 
+  padding-right: 15px;
+  margin: auto;
+}
+.li-selections:hover{
+  text-decoration: underline;
+  background-color: lightgrey;
+}
 
 
 

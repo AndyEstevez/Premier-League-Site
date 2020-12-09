@@ -5,6 +5,7 @@ import HomePage from './components/HomePage';
 import FixturesPage from './components/FixturesPage';
 import ResultsPage from './components/ResultsPage';
 import StandingsPage from './components/StandingsPage';
+import ClubsPage from './components/ClubsPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/Fixtures" component={FixturesPage}/>           
           <Route exact path="/Results" component={ResultsPage}/> 
           <Route exact path="/Standings" component={StandingsPage}/> 
+          <Route exact path="/Clubs" component={ClubsPage}/>
         </Switch>
       </div>
     </Router>
