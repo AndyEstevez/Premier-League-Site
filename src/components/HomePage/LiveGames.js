@@ -26,10 +26,10 @@ function getTime(startTime, lastUpdate){
 
 
 const matches = (props) => {
-    console.log(props.liveGames)
-    console.log(props.matches[props.liveGames])
+    // console.log(props.liveGames)
+    // console.log(props.matches[props.liveGames])
     return(
-        <div style={{display:"inline-block"}}>
+        <div style={{display:"inline-block",}}>
             <h2 className="header-live">Live Games</h2>
             {props.liveGames.map(function(index) {
                 return(

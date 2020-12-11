@@ -4,11 +4,7 @@ import LiveGames from './LiveGames'
 import Matchweek from './Matchweek';
 import TopNews from './TopNews';
 import NewsSection from './NewsSection';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+
 
 // edge cases for embedding highlights:
 // All other teams = remove FC from Club name
@@ -34,14 +30,11 @@ export default class HomePage extends Component {
         try {
             const response = await fetch(process.env.REACT_APP_SEARCH_QUERY_URL);
             const json = await response.json();
-            this.setState({ topNews: json.articles[0], news: json.articles.slice(3, 6)});
+            this.setState({ topNews: json.articles[0], news: json.articles.slice(1, 4)});
           } catch (error) {
             console.log(error);
         }
        
-        // console.log(this.state.news)
-        // console.log(this.state.topNews)
-
         $.ajax({
             headers: { 'X-Auth-Token': process.env.REACT_APP_FOOTBALL_DATA_APIKEY },
             url: process.env.REACT_APP_MATCHES_URL,
@@ -54,38 +47,33 @@ export default class HomePage extends Component {
     }
 
     render() {
-        console.log(process.env.REACT_APP_SEARCH_QUERY_URL)
-        console.log(process.env.REACT_APP_FOOTBALL_DATA_APIKEY)
-        console.log(this.state.footballMatches)
-
+        // console.log(process.env.REACT_APP_SEARCH_QUERY_URL)
+        // console.log(process.env.REACT_APP_FOOTBALL_DATA_APIKEY)
+        // console.log(this.state.footballMatches)
+        let matchday;
         var findLiveGames = [];
         for(var i = 0; i < this.state.footballMatches.length; i++){
             if( this.state.footballMatches[i].status === 'PAUSED' || this.state.footballMatches[i].status === 'IN_PLAY'){
                 findLiveGames.push(i);
             }
             else if(this.state.footballMatches[i].status === 'SCHEDULED'){
+                matchday = this.state.footballMatches[i].matchday;
                 break;
             }
         }
 
         let matchWeek = [];
-        let count = 0;
-        let matchDay;
         for(let i = 0; i < this.state.footballMatches.length; i++){
             if(this.state.footballMatches[i].status === 'SCHEDULED'){
-                matchDay = this.state.footballMatches[i].matchday
-                if(count < 10 && this.state.footballMatches[i].matchday === matchDay){
+                if(this.state.footballMatches[i].matchday === matchday){
                     matchWeek.push(i)
-                    count++;
                 }
                 else{
                     break;
                 }
             }
         }
-        // console.log(findLiveGames)
-      
-        
+     
         return (
             <div style={{ display:"inline-block"}}>
                 {findLiveGames.length > 0 ? 
@@ -93,7 +81,7 @@ export default class HomePage extends Component {
                 : <div></div>
                 }
                 <div style={{display:'flex', margin:"auto"}}>
-                <Matchweek style={{ width:"50%", margin:"auto"}} matches={this.state.footballMatches} weekMatches={matchWeek} matchDay={matchDay}/>
+                <Matchweek style={{ width:"50%", margin:"auto"}} matches={this.state.footballMatches} weekMatches={matchWeek} matchDay={matchday}/>
                 
                 
                 <TopNews style={{ width:"50%", }} topNews={this.state.topNews}/>

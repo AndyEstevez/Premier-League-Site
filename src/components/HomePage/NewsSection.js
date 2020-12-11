@@ -7,8 +7,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 const NewsSection = (props) => {
-    console.log(props.news)
-    console.log(props.topNews)
+    // console.log(props.news)
+    // console.log(props.topNews)
     return(
         <div style={{}}>
 
@@ -16,7 +16,7 @@ const NewsSection = (props) => {
 
 
             <h2 className="news-header">Latest News</h2>
-            <Grid container style={{margin:"auto", padding:"0px 5px", backgroundColor:"white", display:"flex", }} alignItems="stretch">
+            <Grid container className="card-container" style={{margin:"auto", padding:"0px 5px", backgroundColor:"white", display:"flex", }} alignItems="stretch">
                 {props.news.map(function(index){
                     return(
                     <Grid xs={12} sm={6} md={4} style={{ padding:"15px 0px", margin:"auto"}} onClick={() => window.open(index.url, "_blank")}>

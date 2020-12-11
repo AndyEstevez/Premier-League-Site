@@ -19,8 +19,8 @@ code {
 
 /* Navbar CSS */ 
 .search{
-  width: 15%;
-  min-width: 170px;
+  width: 5%;
+  min-width: 270px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 2px 4px 1px rgba(0, 0, 0, .18);
   text-align: left;
   z-index: 8000;
@@ -61,12 +61,22 @@ code {
   font-size: 2.75em;
   text-align: center;
 }
+.topNews{
+  cursor: pointer;
+  width: 100%; 
+  max-width: 1000px; 
+  padding: 15px;
+  height: fit-content;
+}
+
 
 /* Live Game CSS */
 .header-live{
   padding-Left: 15px;
   animation: blinker 1.33s ease-in-out infinite;
-  color: rgb(255, 230, 9);
+  color: #ff2882;
+  font-size: 2.5em;
+  font-weight: bold;
 }
 @keyframes blinker {
   50% {
@@ -82,14 +92,15 @@ code {
   display: inline-block;
   margin: 10px;
   border-radius: 5px;
-
+  background-color: white;
 }
 .game-timer{
-  color: lime;
+  color: #ff2882;
   font-weight: bold;
   width: 35%;
   max-width: 150px; 
   max-height: 10px; 
+  font-size: 1.5em;
   margin: auto;
   text-align: center;
 }
@@ -217,22 +228,7 @@ code {
 
 
 @media screen and (max-width: 1225px) and (min-width: 1045px) {
-  .th-col-7{
-    display:none;
-  }
-  .th-col-8{
-    display:none;
-  }
-  .th-col-11{
-    display:none;
-  }
-  .col-7{
-    display:none;
-  }
-  .col-8{
-    display:none;
-  }
-  .col-11{
+  .th-col-7, .th-col-8, .th-col-11, .col-7, .col-8, .col-11{
     display:none;
   }
   .match-date{
@@ -245,22 +241,7 @@ code {
 }
 
 @media screen and (max-width: 1045px) and (min-width: 835px) {
-  .th-col-7{
-    display:none;
-  }
-  .th-col-8{
-    display:none;
-  }
-  .th-col-11{
-    display:none;
-  }
-  .col-7{
-    display:none;
-  }
-  .col-8{
-    display:none;
-  }
-  .col-11{
+  .th-col-7, .th-col-8, .th-col-11, .col-7, .col-8, .col-11{
     display:none;
   }
   .match-date{
@@ -276,22 +257,10 @@ code {
 }
 
 @media screen and (max-width: 565px) and (min-width: 300px) {
-  .th-col-7{
-    display:none;
+  .body{
+    width:100%;
   }
-  .th-col-8{
-    display:none;
-  }
-  .th-col-11{
-    display:none;
-  }
-  .col-7{
-    display:none;
-  }
-  .col-8{
-    display:none;
-  }
-  .col-11{
+  .th-col-7, .th-col-8, .th-col-11, .col-7, .col-8, .col-11{
     display:none;
   }
   .match-date{
@@ -312,25 +281,13 @@ code {
   .news-header{
     text-align: left;
   }
+  .topNews{
+    display: none;
+  }
 }
 
 @media screen and (max-width: 300px) {
-  .th-col-7{
-    display:none;
-  }
-  .th-col-8{
-    display:none;
-  }
-  .th-col-11{
-    display:none;
-  }
-  .col-7{
-    display:none;
-  }
-  .col-8{
-    display:none;
-  }
-  .col-11{
+  .th-col-7, .th-col-8, .th-col-11, .col-7, .col-8, .col-11{
     display:none;
   }
   .match-date{

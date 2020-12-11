@@ -1,11 +1,12 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavbarObject from './components/Navbar/NavbarObject';
-import HomePage from './components/HomePage';
+import HomePage from './components/HomePage/HomePage';
 import FixturesPage from './components/FixturesPage';
 import ResultsPage from './components/ResultsPage';
 import StandingsPage from './components/StandingsPage';
 import ClubsPage from './components/ClubsPage';
+import ClubPage from './components/ClubPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/Results" component={ResultsPage}/> 
           <Route exact path="/Standings" component={StandingsPage}/> 
           <Route exact path="/Clubs" component={ClubsPage}/>
+          <Route exact path="/Clubs/:clubId" component={ClubPage}/>
         </Switch>
       </div>
     </Router>
