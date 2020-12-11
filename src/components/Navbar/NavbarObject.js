@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import $ from 'jquery';
-import { teamsURL, football_data_APIKEY } from '../../config';
 import SearchIcon from '@material-ui/icons/Search';
 
 export default class NavbarObject extends Component {

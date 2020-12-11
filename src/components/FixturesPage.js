@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { football_data_APIKEY, matchesURL, imageURL } from '../config';
 import $ from 'jquery';
 import moment from 'moment';
 

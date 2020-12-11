@@ -1,4 +1,3 @@
-import { imageURL } from '../config';
 import moment from 'moment';
 
 // if less than or equal to 45 return time
@@ -30,7 +29,7 @@ const matches = (props) => {
     console.log(props.liveGames)
     console.log(props.matches[props.liveGames])
     return(
-        <div>
+        <div style={{display:"inline-block"}}>
             <h2 className="header-live">Live Games</h2>
             {props.liveGames.map(function(index) {
                 return(

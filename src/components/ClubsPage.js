@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import { football_data_APIKEY, teamsURL, imageURL } from '../config'
 import $ from 'jquery'
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -18,7 +16,6 @@ export default class ClubsPage extends Component {
         super(props)
         this.state = {
             teams: [],
-
         }
     }
 
@@ -40,11 +37,11 @@ export default class ClubsPage extends Component {
         console.log(this.state.teams)
         return (
             <div>
-                <Grid container >
+                <Grid container>
                 {this.state.teams.map(function(index){
 
                     return(
-                    <Grid item xs={8} sm={8} md={4} style={{width:"80%", paddingBottom:"15px"}}>
+                    <Grid item xs={8} sm={8} md={4} style={{width:"80%", paddingBottom:"15px", margin:"auto"}}>
                         <Card  style={{margin: "auto", width:"15%", minWidth:"400px"}} >
                             <CardActionArea>
                             <CardMedia style={{padding:"0px 50px", background: `linear-gradient(${index.clubColors.split(" ")[0]}, ${index.clubColors.split(" ")[2]})`}}>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { football_data_APIKEY } from '../config';
 import $ from 'jquery';
 
 

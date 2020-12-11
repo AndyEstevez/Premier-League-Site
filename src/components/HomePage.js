@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import $ from 'jquery'; 
 import LiveGames from './LiveGames'
-import { football_data_APIKEY, matchesURL } from '../config';
 import Matchweek from './Matchweek';
+import TopNews from './TopNews';
+import NewsSection from './NewsSection';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 
 // edge cases for embedding highlights:
 // All other teams = remove FC from Club name
@@ -18,11 +24,24 @@ export default class HomePage extends Component {
         this.state = {
             footballMatches: [],
             liveMatches: [], 
+            topNews: [],
+            news: [],
         }
     }
 
-    componentDidMount(){
-        
+    async componentDidMount(){
+        console.log(process.env.REACT_APP_SEARCHQUERY_URL)
+        try {
+            const response = await fetch(process.env.REACT_APP_SEARCH_QUERY_URL);
+            const json = await response.json();
+            this.setState({ topNews: json.articles[0], news: json.articles.slice(3, 6)});
+          } catch (error) {
+            console.log(error);
+        }
+       
+        // console.log(this.state.news)
+        // console.log(this.state.topNews)
+
         $.ajax({
             headers: { 'X-Auth-Token': process.env.REACT_APP_FOOTBALL_DATA_APIKEY },
             url: process.env.REACT_APP_MATCHES_URL,
@@ -35,7 +54,10 @@ export default class HomePage extends Component {
     }
 
     render() {
+        console.log(process.env.REACT_APP_SEARCH_QUERY_URL)
+        console.log(process.env.REACT_APP_FOOTBALL_DATA_APIKEY)
         console.log(this.state.footballMatches)
+
         var findLiveGames = [];
         for(var i = 0; i < this.state.footballMatches.length; i++){
             if( this.state.footballMatches[i].status === 'PAUSED' || this.state.footballMatches[i].status === 'IN_PLAY'){
@@ -65,12 +87,18 @@ export default class HomePage extends Component {
       
         
         return (
-            <div>
+            <div style={{ display:"inline-block"}}>
                 {findLiveGames.length > 0 ? 
-                <LiveGames liveGames={findLiveGames} matches={this.state.footballMatches} />
+                <LiveGames style={{display:"inline-block"}} liveGames={findLiveGames} matches={this.state.footballMatches} />
                 : <div></div>
                 }
-                <Matchweek matches={this.state.footballMatches} weekMatches={matchWeek} matchDay={matchDay}/>
+                <div style={{display:'flex', margin:"auto"}}>
+                <Matchweek style={{ width:"50%", margin:"auto"}} matches={this.state.footballMatches} weekMatches={matchWeek} matchDay={matchDay}/>
+                
+                
+                <TopNews style={{ width:"50%", }} topNews={this.state.topNews}/>
+                </div>
+                <NewsSection style={{display:"block"}} news={this.state.news} topNews={this.state.topNews}/>
             </div>
         )
     }

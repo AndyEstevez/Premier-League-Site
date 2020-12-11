@@ -55,7 +55,12 @@ code {
 }
 
 
-
+.news-header{
+  margin: auto;
+  background-color: white;
+  font-size: 2.75em;
+  text-align: center;
+}
 
 /* Live Game CSS */
 .header-live{
@@ -76,6 +81,8 @@ code {
   border: 3px solid black;
   display: inline-block;
   margin: 10px;
+  border-radius: 5px;
+
 }
 .game-timer{
   color: lime;
@@ -92,6 +99,8 @@ code {
   padding: 10px 10px;
   color: white;
   font-size: 32px;
+  border-radius: 5px;
+
 }
 
 
@@ -100,10 +109,14 @@ code {
   border: 1px solid black;
   font-size: 2em;
   margin: auto;
+  border-radius: 5px;
+
 }
 .fixtures-container{
   display: flex;
   width: 50%;
+  border-radius: 5px;
+
 }
 .fixtures-name{
   margin: auto;
@@ -124,16 +137,18 @@ code {
   max-width: 1000px;
   margin: auto; 
   display: flex;
+  border-radius: 5px;
+
 }
 .result-container:hover{
-  background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-  linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-  linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+  background:  rgb(128,0,255);
+  background: linear-gradient(90deg, rgba(128,0,255,1) 25%, rgba(255,0,202,1) 75%);
 }
 .team-container{
   display: flex;
   border: 3px solid black;
   width: 50%;
+  border-radius: 5px;
 }
 .team-name{
   margin: auto;
@@ -146,6 +161,7 @@ code {
   background-color: purple;
   padding: 10px 10px;
   color: white;
+  border-radius: 5px;
 }
 
 
@@ -187,7 +203,8 @@ code {
 }
 
 .content-table tbody tr:hover{
-  background-color: #d90ae0;
+  background: rgb(128,0,255);
+  background: linear-gradient(90deg, rgba(128,0,255,1) 25%, rgba(255,0,202,1) 75%);
   font-size: "24px";
 }
 
@@ -221,7 +238,9 @@ code {
   .match-date{
     display: none;
   }
- 
+  .news-header{
+    text-align: left;
+  }
   
 }
 
@@ -249,6 +268,9 @@ code {
   }
   .team-name{
     display: none;
+  }
+  .news-header{
+    text-align: left;
   }
   
 }
@@ -287,6 +309,9 @@ code {
   .game-time{
     padding: 0px 0px;
   }
+  .news-header{
+    text-align: left;
+  }
 }
 
 @media screen and (max-width: 300px) {
@@ -313,6 +338,9 @@ code {
   }
   .team-name{
     display: none;
+  }
+  .news-header{
+    text-align: left;
   }
   
 }
