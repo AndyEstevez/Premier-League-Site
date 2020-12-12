@@ -6,7 +6,7 @@ import FixturesPage from './components/FixturesPage';
 import ResultsPage from './components/ResultsPage';
 import StandingsPage from './components/StandingsPage';
 import ClubsPage from './components/ClubsPage';
-import ClubPage from './components/ClubPage/ClubPage';
+import TabPage from './components/TabPage/TabPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/Standings" component={StandingsPage}/> 
           <Route exact path="/Clubs" component={ClubsPage}/>
           <Redirect exact from="/Clubs/:clubId/" to="/Clubs/:clubId/Fixtures" />
-          <Route exact path="/Clubs/:clubId/:page?" component={ClubPage} />
+          <Route exact path="/Clubs/:clubId/:page?" component={TabPage} />
         </Switch>
       </div>
     </Router>

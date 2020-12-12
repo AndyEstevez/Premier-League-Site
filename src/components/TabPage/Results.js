@@ -1,10 +1,6 @@
 import React from 'react'
 import moment from 'moment'
 
-
-
-
-
 const Results = (props) => {
     let matches = reverseGames(props.matches);
     

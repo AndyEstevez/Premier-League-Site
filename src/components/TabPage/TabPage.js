@@ -4,7 +4,7 @@ import { Tabs, Tab } from "@material-ui/core";
 import Fixtures from "./Fixtures";
 import Results from "./Results";
 
-const ClubPage = (props) => {
+const TabPage = (props) => {
     const { match, history } = props;
     const { params } = match;
     const { page } = params;
@@ -36,8 +36,7 @@ const ClubPage = (props) => {
         fetchResults(endpointResult);
     }, [])
 
-    // function to do an API request for searching based on what the user typed to the searchbar
-    // and setting the state hook 'Searches' to the response results
+
     const fetchFixtures = (endpoint) =>  {
         $.ajax({
             headers: { 'X-Auth-Token': process.env.REACT_APP_FOOTBALL_DATA_APIKEY },
@@ -51,12 +50,7 @@ const ClubPage = (props) => {
             
         })
 
-        // fetch(endpoint)
-        //     .then(response => response.json())
-        //     .then(response => {
-        //         setSearch([...Searches, ...response.results])
-        //     })
-        
+    
         
     }
     const fetchResults = (endpoint) =>  {
@@ -69,15 +63,6 @@ const ClubPage = (props) => {
                 setResults([...resultMatches, ...res.matches])
             }
         })
-
-        // console.log(resultMatches)
-        // fetch(endpoint)
-        //     .then(response => response.json())
-        //     .then(response => {
-        //         setSearch([...Searches, ...response.results])
-        //     })
-        
-        
     }
     // console.log(resultMatches)
 
@@ -95,4 +80,4 @@ const ClubPage = (props) => {
       );
     };
     
-export default ClubPage;
+export default TabPage;
