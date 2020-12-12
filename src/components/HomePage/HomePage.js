@@ -63,6 +63,7 @@ export default class HomePage extends Component {
         }
 
         let matchWeek = [];
+        console.log(matchday)
         for(let i = 0; i < this.state.footballMatches.length; i++){
             if(this.state.footballMatches[i].status === 'SCHEDULED'){
                 if(this.state.footballMatches[i].matchday === matchday){

@@ -12,7 +12,7 @@ const Matchweek = (props) => {
 
     return (
         <div style={{backgroundColor: "white", width: "50%", maxWidth: "350px", borderRadius: "5px", margin:"15px",}}>
-             <h2 style={{color: "#ff2882", margin: "auto", textAlign:"center"}}>Matchweek {props.matchDay-1}</h2>
+             <h2 style={{color: "#ff2882", margin: "auto", textAlign:"center"}}>Matchweek {props.matchDay}</h2>
 
             {props.weekMatches.map(function(index){
                 isA = false;

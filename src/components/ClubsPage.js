@@ -56,7 +56,7 @@ export default class ClubsPage extends Component {
                             </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button style={{margin:"auto", fontSize:"1.5em", color:"black"}} size="small" color="primary" onClick={event => window.location.href=`/Clubs/${index.id}`}>
+                                <Button style={{margin:"auto", fontSize:"1.5em", color:"black"}} size="small" color="primary" onClick={event => window.location.href=`/Clubs/${index.id}/`}>
                                 Club Page
                                 </Button>
                             </CardActions>
