@@ -15,6 +15,10 @@ An React-based project that shows information for the current Premier League sea
 - <a href="https://gnews.io/">GNews</a>: Used for getting the latest news on the Premier League in England
 
 ## Screenshots
+<img src="screenshots/homepage.png" height='300' width='450'/> <img src="screenshots/fixturespage.png" height='300' width='450'/> 
 
+<img src="screenshots/resultspage.png" height='300' width='450'/> <img src="screenshots/standingspage.png" height='300' width='450'/> 
+
+<img src="screenshots/clubspage.png" height='300' width='450'/> 
 
 
