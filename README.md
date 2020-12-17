@@ -2,6 +2,10 @@
 
 A React-based project that shows information for the current Premier League season (Standings, Fixtures, Results, Clubs, Live Games, Matchweek games)
 
+## Live Version 
+
+warm-oasis-56494.herokuapp.com/
+
 ## Dependencies/Libraries Used
 
 - <a href="https://react-bootstrap.github.io/">React Bootstrap</a>: Needed for creating the navigation bar
