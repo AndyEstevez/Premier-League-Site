@@ -1,6 +1,6 @@
 # Premier League Site
 
-An React-based project that shows information for the current Premier League season (Standings, Fixtures, Results, Clubs, Live Games, Matchweek games)
+A React-based project that shows information for the current Premier League season (Standings, Fixtures, Results, Clubs, Live Games, Matchweek games)
 
 ## Dependencies/Libraries Used
 
