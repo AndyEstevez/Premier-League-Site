@@ -11,12 +11,8 @@ const NewsSection = (props) => {
     // console.log(props.topNews)
     return(
         <div style={{}}>
-
-            
-
-
             <h2 className="news-header">Latest News</h2>
-            <Grid container className="card-container" style={{margin:"auto", padding:"0px 5px", backgroundColor:"white", display:"flex", }} alignItems="stretch">
+            <Grid container className="card-container" style={{margin:"auto", padding:"0px 5px", backgroundColor:"white", display:"flex", maxWidth:"1800px" }}>
                 {props.news.map(function(index){
                     return(
                     <Grid xs={12} sm={6} md={4} style={{ padding:"15px 0px", margin:"auto"}} onClick={() => window.open(index.url, "_blank")}>

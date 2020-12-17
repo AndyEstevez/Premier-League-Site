@@ -40,9 +40,9 @@ export default class FixturesPage extends Component {
         return dates;
     }
 
-    componentDidMount(){
+    async componentDidMount(){
         
-        $.ajax({
+    await $.ajax({
             headers: { 'X-Auth-Token': process.env.REACT_APP_FOOTBALL_DATA_APIKEY },
             url: process.env.REACT_APP_MATCHES_URL,
             dataType: 'json',

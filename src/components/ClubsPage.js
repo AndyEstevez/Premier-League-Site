@@ -18,7 +18,7 @@ export default class ClubsPage extends Component {
         }
     }
 
-    componentDidMount(){
+    async componentDidMount(){
         
         $.ajax({
             headers: { 'X-Auth-Token': process.env.REACT_APP_FOOTBALL_DATA_APIKEY },
