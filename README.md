@@ -4,7 +4,7 @@ A React-based project that shows information for the current Premier League seas
 
 ## Live Version 
 
-warm-oasis-56494.herokuapp.com/
+<a href="warm-oasis-56494.herokuapp.com/">warm-oasis-56494.herokuapp.com/</a>
 
 ## Dependencies/Libraries Used
 
